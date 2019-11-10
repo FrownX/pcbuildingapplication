@@ -1,0 +1,75 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<!-- Card -->
+
+
+
+
+<hr>
+<h3 class="text-black">Deep Dive</h3>
+<p class="text-black">some items based on user preferences</p>
+<!--<hr style="border: 0.5px solid black;">-->
+
+<div class="row ">
+        <div class="col-md-4 "><div class="md-form form-lg">
+          
+            
+                <input type="text" id="inputLGEx" class="form-control form-control-lg">
+                
+                <label for="inputLGEx">Search CPU</label>
+              </div></div>
+    
+    {% for cpu in cpuss %}
+    <div class="col-md-3 ">
+        <br>
+        <div class="card testimonial-card">
+
+            <!-- Background color -->
+            <div class="card-up indigo lighten-1"></div>
+
+            <!-- Avatar -->
+
+            <div class="view overlay">
+                <img class="card-img-top" src="{{ cpu.image}}" alt="Card image cap" data-toggle="popover-hover">
+                <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+
+
+            <!-- Content -->
+            <div class="card-body blue-gradient white-text text-muted ">
+                <!-- Name -->
+                <h6 class="card-title text-right white-text">{{ cpu.partname }}</h6>
+                <h6 class="card-title text-right white-text">RM {{ cpu.price }}</h6>
+                <hr>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<!-- Card -->
+<script>
+$('[data-toggle="popover-hover"]').popover({
+  html: true,
+  trigger: 'hover',
+  placement: 'bottom',
+  content: function () { return '<img src="' + $(this).data('img') + '" />'; }
+});
+
+
+
+</script>
+
+
+
+
+
+
+
+{% endblock content %}
